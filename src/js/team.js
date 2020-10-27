@@ -39,6 +39,10 @@ class Team {
     return Array.from(this.members);
   }
 
+  /**
+  * Позволяет провести итерацию по this.members
+  * через for ... of team
+  */
   [Symbol.iterator]() {
     const team = this.toArray();
     let current = 0;
