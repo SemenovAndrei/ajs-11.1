@@ -9,11 +9,7 @@ team.addAll(charactersList);
 for (const person of team) {
   console.log(person);
 }
-const expected = [];
-for (const person of team) {
-  expected.push(person);
-}
-console.log(expected);
+console.log('\n team.toArray():');
 
 const members = team.toArray();
 members.forEach((e) => {
