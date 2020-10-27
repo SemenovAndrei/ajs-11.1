@@ -1,8 +1,21 @@
-import Daemon from './characters/daemon';
+/* eslint-disable no-restricted-syntax */
+import charactersList from './characters/characterslist';
+import Team from './team';
 
-const character = new Daemon('Alex');
+const team = new Team();
+team.addAll(charactersList);
 
-character.stoned = true;
-character.attack = 10;
-character.range = 2;
-console.log(character);
+
+for (const person of team) {
+  console.log(person);
+}
+const expected = [];
+for (const person of team) {
+  expected.push(person);
+}
+console.log(expected);
+
+const members = team.toArray();
+members.forEach((e) => {
+  console.log(e);
+});

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import charactersList from '../characters/characterslist';
 import charactersList1 from '../characters/characterslist1';
 import Team from '../team';
@@ -60,12 +61,15 @@ test('однократное добавление списка персонаж�
   expect(team.members.size).toBe(12);
 });
 
-test('2-кратное добавление списка персонажей', () => {
-  const team = new Team();
-  team.addAll(charactersList);
-  team.addAll(charactersList1);
 
-  team.addAll(charactersList);
-  team.addAll(charactersList1);
-  expect(team.members.size).toBe(12);
+describe('test iterator', () => {
+  test('team{Symbol.iterator]', () => {
+    const team = new Team();
+    team.addAll(charactersList);
+    const expected = [];
+    for (const person of team) {
+      expected.push(person);
+    }
+    expect(expected).toEqual(team.toArray());
+  });
 });
